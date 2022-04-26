@@ -57,6 +57,20 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands: []
+  - name: Release
+    dependencies:
+      - Integration Tests
+    task:
+      agent:
+        machine:
+          type: e1-standard-2
+          os_image: ubuntu1804
+        containers:
+          - name: main
+            image: 'semaphoreci/ubuntu:20.04'
+      jobs:
+        - name: Docker Image Push
+          commands: []
 promotions:
   - name: Production Deployment
     pipeline_file: pipeline_2.yml
