@@ -65,7 +65,11 @@ blocks:
         - name: Docker Image Push
           commands: []
 promotions:
-  - name: Production Deployment
+  - name: Prepro Deployment
     pipeline_file: pipeline_2.yml
+    auto_promote:
+      when: branch = 'main' AND result = 'passed'
+  - name: Prod Deployment
+    pipeline_file: pipeline_3.yml
     auto_promote:
       when: branch = 'main' AND result = 'passed'
