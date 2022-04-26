@@ -1,5 +1,5 @@
 version: v1.0
-name: Pipeline 2
+name: Pipeline 3
 agent:
   machine:
     type: e1-standard-2
@@ -8,14 +8,9 @@ blocks:
   - name: Deploy
     task:
       jobs:
-        - name: Deploy to Preprod
+        - name: Deploy to Prod
           commands:
             - echo "deploying using key $API_KEY"
       env_vars:
         - name: API_KEY
           value: '123'
-promotions:
-  - name: Prod Deployment
-    pipeline_file: pipeline_3.yml
-    auto_promote:
-      when: branch = 'main' AND result = 'passed'
