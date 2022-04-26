@@ -23,3 +23,13 @@ blocks:
         - name: Integration Tests
           commands:
             - echo 'running integration tests'
+after_pipeline:
+  task:
+    jobs:
+      - name: 'Job #1'
+        commands: []
+promotions:
+  - name: Production Deployment
+    pipeline_file: pipeline_2.yml
+    auto_promote:
+      when: branch = 'master' AND result = 'passed'
