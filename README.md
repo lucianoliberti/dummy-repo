@@ -1,2 +1,2 @@
 # dummy-repo
-Repo for personal tests
+Repo for personal tests, nothing else
