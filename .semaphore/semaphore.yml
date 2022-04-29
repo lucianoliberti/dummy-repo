@@ -33,8 +33,22 @@ blocks:
       jobs:
         - name: 'Unit Test #1'
           commands:
-            - echo "hello multiple instances"
-          parallelism: 10
+            - echo $BROWSER $OS $MACHINE
+          matrix:
+            - env_var: BROWSER
+              values:
+                - chrome
+                - firefox
+                - safari
+            - env_var: OS
+              values:
+                - linux
+                - macOS
+            - env_var: MACHINE
+              values:
+                - lenovo
+                - dell
+                - mac
   - name: Integration Tests
     dependencies:
       - Checks on macOS
