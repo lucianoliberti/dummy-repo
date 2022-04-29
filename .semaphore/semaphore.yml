@@ -32,7 +32,9 @@ blocks:
           - checkout
       jobs:
         - name: 'Unit Test #1'
-          commands: []
+          commands:
+            - echo "hello multiple instances"
+          parallelism: 10
   - name: Integration Tests
     dependencies:
       - Checks on macOS
