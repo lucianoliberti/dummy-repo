@@ -53,8 +53,8 @@ blocks:
                 - lenovo
                 - dell
                 - mac
-    run:
-      when: branch = 'main'
+    skip:
+      when: branch != 'other_branch'
   - name: Integration Tests
     dependencies:
       - Checks on macOS
