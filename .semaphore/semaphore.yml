@@ -51,6 +51,8 @@ blocks:
                 - lenovo
                 - dell
                 - mac
+    run:
+      when: branch = 'main'
   - name: Integration Tests
     dependencies:
       - Checks on macOS
