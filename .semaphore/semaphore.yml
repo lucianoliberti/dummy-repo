@@ -11,6 +11,8 @@ blocks:
         - name: Test
           commands:
             - checkout
+      secrets:
+        - name: credentials
     dependencies: []
   - name: Sec Audit
     task:
