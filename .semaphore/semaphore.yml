@@ -24,7 +24,7 @@ blocks:
       jobs:
         - name: 'Job#1'
           commands:
-            - echo 'running unit tests'
+            - ls -l
     dependencies:
       - Build
   - name: Unit Tests
