@@ -24,6 +24,7 @@ blocks:
       jobs:
         - name: 'Job#1'
           commands:
+            - artifact pull workflow chrome-ss1.png
             - ls -l
     dependencies:
       - Build
