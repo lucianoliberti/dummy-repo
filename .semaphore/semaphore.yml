@@ -15,8 +15,6 @@ blocks:
       secrets:
         - name: credentials
     dependencies: []
-    skip:
-      when: branch = 'main'
   - name: Sec Audit
     task:
       prologue:
