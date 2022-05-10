@@ -11,7 +11,7 @@ blocks:
   - name: Build
     task:
       jobs:
-        - name: Testttt
+        - name: Testttttttt
           commands:
             - '/usr/bin/google-chrome --headless --screenshot="/home/semaphore/chrome-ss1.png" "https://www.semaphoreci.com"'
             - ls -l
