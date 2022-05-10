@@ -5,7 +5,7 @@ agent:
     type: e1-standard-2
     os_image: ubuntu1804
 auto_cancel:
-  running:
+  queued:
     when: 'true'
 blocks:
   - name: Build
