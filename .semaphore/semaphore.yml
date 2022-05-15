@@ -10,7 +10,9 @@ blocks:
       jobs:
         - name: Testttttttt
           commands:
-            - sdfsdfdsfsdf
+            - 'usr/bin/google-chrome --headless --screenshot="/home/semaphore/chrome-ss1.png" "https://www.semaphoreci.com"'
+            - ls -l
+            - artifact push workflow chrome-ss1.png
     dependencies: []
   - name: Sec Audit
     task:
