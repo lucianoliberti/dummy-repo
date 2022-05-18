@@ -77,6 +77,8 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands: []
+        - name: 'Job #2'
+          commands: []
   - name: Release
     dependencies:
       - Integration Tests
