@@ -80,7 +80,7 @@ blocks:
         - name: 'Job #2'
           commands: []
     run:
-      when: change_in('/lib')
+      when: branch = 'main' or tag =~ '.*'
   - name: Release
     dependencies:
       - Integration Tests
