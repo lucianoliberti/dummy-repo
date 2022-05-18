@@ -76,14 +76,9 @@ blocks:
           os_image: macos-xcode13
       jobs:
         - name: 'Job #1'
-          priority: null
+        	priority:
+          - value: 70
           commands: []
-        - value: 70
-          name: Nameless 2
-          commands: []
-        - when: branch = 'master'
-          commands: []
-          name: Nameless 3
         - name: 'Job #2'
           commands: []
   - name: Release
