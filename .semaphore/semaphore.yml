@@ -79,8 +79,6 @@ blocks:
           commands: []
         - name: 'Job #2'
           commands: []
-    run:
-      when: branch = 'main' or tag =~ '.*'
   - name: Release
     dependencies:
       - Integration Tests
