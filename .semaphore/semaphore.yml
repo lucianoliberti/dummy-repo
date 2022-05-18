@@ -23,7 +23,7 @@ blocks:
         - name: 'Job#1'
           priority:
             - value: 50
-          when: branch = 'main'
+          '-when': branch = 'main'
           commands:
             - echo "Sec Audit done"
     dependencies:
