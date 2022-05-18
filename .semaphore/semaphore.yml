@@ -25,6 +25,7 @@ blocks:
             - echo "Sec Audit done"
           priority:
             - value: 50
+            - when: branch = 'main'
     dependencies:
       - Build
   - name: Unit Tests
