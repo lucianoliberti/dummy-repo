@@ -23,6 +23,8 @@ blocks:
         - name: 'Job#1'
           commands:
             - echo "Sec Audit done"
+          priority:
+            - value: 50
     dependencies:
       - Build
   - name: Unit Tests
