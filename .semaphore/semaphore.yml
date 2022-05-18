@@ -21,9 +21,6 @@ blocks:
           - checkout
       jobs:
         - name: 'Job#1'
-          priority:
-            - value: 50
-          when: branch = 'main'
           commands:
             - echo "Sec Audit done"
     dependencies:
