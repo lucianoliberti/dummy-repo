@@ -11,8 +11,6 @@ blocks:
     task:
       jobs:
         - name: Testttttttt
-        	priority:
-          - value: 70
           commands:
             - echo "Build done"
     dependencies: []
