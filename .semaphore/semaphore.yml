@@ -66,6 +66,7 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands: []
+      commands: []
   - name: Checks on macOS
     dependencies:
       - Build
