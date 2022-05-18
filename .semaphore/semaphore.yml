@@ -79,6 +79,8 @@ blocks:
           commands: []
         - name: 'Job #2'
           commands: []
+    run:
+      when: change_in('/lib')
   - name: Release
     dependencies:
       - Integration Tests
