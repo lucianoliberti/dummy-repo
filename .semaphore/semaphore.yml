@@ -13,6 +13,8 @@ blocks:
         - name: Testttttttt
           commands:
             - echo "Build done"
+      secrets:
+        - name: credentials
     dependencies: []
   - name: Sec Audit
     task:
