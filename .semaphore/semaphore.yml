@@ -5,7 +5,8 @@ agent:
     type: e1-standard-2
     os_image: ubuntu1804
 queue:
-  processing: parallel
+  name: Deployment queue
+  scope: project
 blocks:
   - name: Build
     task:
