@@ -79,8 +79,8 @@ blocks:
       jobs:
         - name: 'Job #1'
           priority:
-            - 'value:90'
-          when: true
+            - value: 90
+              when: true
           commands: []
         - name: 'Job #2'
           commands: []
