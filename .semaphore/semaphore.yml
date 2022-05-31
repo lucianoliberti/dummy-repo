@@ -67,7 +67,8 @@ blocks:
           os_image: ubuntu1804
       jobs:
         - name: 'Job #1'
-          commands: []
+          commands:
+            - cache list
   - name: Checks on macOS
     dependencies:
       - Build
