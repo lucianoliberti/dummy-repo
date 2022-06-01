@@ -92,6 +92,13 @@ blocks:
       jobs:
         - name: Docker Image Push
           commands: []
+      agent:
+        machine:
+          type: e1-standard-2
+          os_image: ubuntu1804
+        containers:
+          - name: main
+            image: 'semaphoreci/ubuntu:20.04'
 promotions:
   - name: Prepro Deployment
     pipeline_file: pipeline_2.yml
