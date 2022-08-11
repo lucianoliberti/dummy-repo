@@ -15,6 +15,9 @@ blocks:
             - echo "Build done"
       secrets:
         - name: credentials
+      env_vars:
+        - name: MATCH_FORCE_FOR_NEW_DEVICES
+          value: 'true'
     dependencies: []
   - name: Sec Audit
     task:
