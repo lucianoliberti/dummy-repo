@@ -19,6 +19,10 @@ blocks:
       env_vars:
         - name: MATCH_FORCE_FOR_NEW_DEVICES
           value: 'true'
+      agent:
+        machine:
+          type: e1-standard-2
+          os_image: ubuntu2004
     dependencies: []
   - name: Sec Audit
     task:
@@ -96,6 +100,9 @@ blocks:
       jobs:
         - name: Docker Image Push
           commands: []
+      env_vars:
+        - name: FOO_1
+          value: BAR_1
 promotions:
   - name: Prepro Deployment
     pipeline_file: pipeline_2.yml
