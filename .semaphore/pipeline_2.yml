@@ -7,6 +7,11 @@ agent:
 auto_cancel:
   running:
     when: 'true'
+global_job_config:
+  prologue:
+    commands:
+      - echo $ENVIRONMENT
+      - echo $RELEASE
 blocks:
   - name: Deploy
     task:
@@ -14,8 +19,6 @@ blocks:
         - name: Deploy to Preprod
           commands:
             - echo "deploying using key $API_KEY"
-            - echo $RELEASE
-            - echo $ENVIRONMENT
       env_vars:
         - name: API_KEY
           value: '123'
