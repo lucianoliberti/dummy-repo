@@ -22,6 +22,13 @@ blocks:
       env_vars:
         - name: API_KEY
           value: '123'
+    dependencies: []
+  - name: Deploy 2
+    dependencies: []
+    task:
+      jobs:
+        - name: Deploy to Preprod2
+          commands: []
 promotions:
   - name: Prod Deployment
     pipeline_file: pipeline_3.yml
