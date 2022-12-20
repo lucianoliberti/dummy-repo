@@ -119,5 +119,3 @@ promotions:
           options: []
           description: Release name?
           name: RELEASE
-    auto_promote:
-      when: branch = 'main' AND result = 'passed'
