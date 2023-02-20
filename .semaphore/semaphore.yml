@@ -77,6 +77,10 @@ blocks:
         - name: 'Job #1'
           commands:
             - cache list
+      epilogue:
+        always:
+          commands:
+            - echo "Message showed in spite of having been cancelled"
   - name: Checks on macOS
     dependencies:
       - Build
