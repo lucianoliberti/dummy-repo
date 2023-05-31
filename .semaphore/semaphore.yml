@@ -39,6 +39,10 @@ blocks:
       - Sec Audit
       - Unit Tests
     task:
+      agent:
+        machine:
+          type: e1-standard-2
+          os_image: ubuntu1804
       jobs:
         - name: 'Job #1'
           commands: []
