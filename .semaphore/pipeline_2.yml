@@ -17,5 +17,3 @@ blocks:
 promotions:
   - name: Prod Deployment
     pipeline_file: pipeline_3.yml
-    auto_promote:
-      when: branch = 'main' AND result = 'passed'
