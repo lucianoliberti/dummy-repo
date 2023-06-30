@@ -3,15 +3,125 @@ name: Initial Pipeline
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu2004
+    os_image: ubuntu1804
+queue:
+  processing: parallel
 blocks:
-  - name: 'Block #1'
+  - name: Build
     task:
       jobs:
-        - name: 'Job #1'
+        - name: Testttttttt
           commands:
-            - checkout
+            - echo "Build done"
+      secrets:
+        - name: Testtt
+        - name: credentials
+      env_vars:
+        - name: MATCH_FORCE_FOR_NEW_DEVICES
+          value: 'true'
+        - name: env
+          value: var
       agent:
         machine:
           type: e1-standard-2
           os_image: ubuntu2004
+    dependencies: []
+  - name: Sec Audit
+    task:
+      prologue:
+        commands:
+          - checkout
+      jobs:
+        - name: 'Job#1'
+          commands:
+            - echo "Sec Audit done"
+    dependencies:
+      - Build
+  - name: Unit Tests
+    dependencies:
+      - Build
+    task:
+      prologue:
+        commands:
+          - checkout
+      jobs:
+        - name: 'Unit Test #1'
+          commands:
+            - echo $BROWSER $OS $MACHINE
+          matrix:
+            - env_var: BROWSER
+              values:
+                - chrome
+                - firefox
+                - safari
+            - env_var: OS
+              values:
+                - linux
+                - macOS
+            - env_var: MACHINE
+              values:
+                - lenovo
+                - dell
+                - mac
+    skip:
+      when: branch != 'other_branch'
+  - name: Integration Tests
+    dependencies:
+      - Checks on macOS
+      - Sec Audit
+      - Unit Tests
+    task:
+      agent:
+        machine:
+          type: e1-standard-2
+          os_image: ubuntu1804
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - cache list
+      epilogue:
+        always:
+          commands:
+            - echo "Message showed in spite of having been cancelled"
+  - name: Checks on macOS
+    dependencies:
+      - Build
+    task:
+      agent:
+        machine:
+          type: a1-standard-4
+          os_image: macos-xcode13
+      jobs:
+        - name: 'Job #1'
+          priority:
+            - value: 90
+              when: true
+          commands: []
+        - name: 'Job #2'
+          commands: []
+  - name: Release
+    dependencies:
+      - Integration Tests
+    task:
+      jobs:
+        - name: Docker Image Push
+          commands: []
+      env_vars:
+        - name: FOO_1
+          value: BAR_1
+promotions:
+  - name: Prepro Deployment
+    pipeline_file: pipeline_2.yml
+    parameters:
+      env_vars:
+        - required: true
+          options:
+            - Stage
+            - Production
+          default_value: Stage
+          description: Where to deploy?
+          name: ENVIRONMENT
+        - required: true
+          options: []
+          description: Release name?
+          name: RELEASE
